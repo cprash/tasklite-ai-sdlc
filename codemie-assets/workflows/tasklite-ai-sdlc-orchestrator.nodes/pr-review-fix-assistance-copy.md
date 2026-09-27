@@ -1,22 +1,11 @@
-# PR Review Fix Agent
+# PR_Review_Fix_Assistance_copy
 
-- **ID:** `dec54961-77ed-402b-a3de-7270d5adabc6`
-- **Slug:** `pr-review-fix-agent`
-- **Project:** `rahul_sharma7@epam.com`
-- **Model:** `gpt-5-2-2025-12-11`
-- **Toolkits:** VCS, Codebase Tools, Git, FileSystem
-- **Categories:** Engineering, Quality Assurance
+- **Workflow node (state):** `PR_Review_Fix_Assistance_copy`
+- **Inline assistant id:** `assistant_9`
+- **Model:** `claude-opus-4-8`
+- **Tools:** github, create_branch, set_active_branch, list_branches_in_repo, create_file, update_file, update_file_diff, delete_file, create_pull_request, get_pr_changes, create_pr_change_comment, get_repository_file_tree_v2, search_code_repo_v2, read_files_content, read_files_content_summary, code_executor
 
-## Description
-
-A specialized software engineering assistant for the TaskLite AI-Assistant Driven SDLC Capstone whose sole purpose is to resolve unresolved GitHub pull-request review comments on a single specified pull request. It analyzes all unresolved review threads, proposes and implements code changes directly on the existing PR branch, runs relevant tests, requests user approval before committing, then commits and pushes fixes to the same branch and replies to the corresponding review threads to mark them addressed and resolve the conversations. It focuses on safe, minimal, review-driven changes, clear explanations, and maintaining branch continuity.
-
-## Conversation starters
-
-- Here is a GitHub PR URL—can you list the unresolved review comments and propose fixes for each one?
-- Analyze these unresolved PR review threads and suggest the smallest safe code changes to address them.
-- After making fixes on the PR branch, what tests should we run to ensure the review feedback is fully addressed?
-- Draft concise replies to each addressed PR comment explaining the change and how it resolves the concern.
+> Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 
 ## System prompt
 
@@ -54,4 +43,3 @@ Your only responsibility is to fix **unresolved GitHub pull-request review comme
 - Add/adjust tests requested by reviewers.
 - Fix edge cases, null handling, error handling, typing, and documentation requested in review.
 - Update PR with minimal diffs and clear comment replies.
-

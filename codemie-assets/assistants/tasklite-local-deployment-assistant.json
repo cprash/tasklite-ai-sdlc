@@ -1,0 +1,96 @@
+{
+  "system_prompt_history": [],
+  "project": "rahul_sharma7@epam.com",
+  "created_date": "2026-09-27T16:38:54.147523",
+  "tools_tokens_size_limit": null,
+  "skill_ids": [],
+  "unique_dislikes_count": 0,
+  "custom_metadata": null,
+  "icon_url": "",
+  "conversation_starters": [
+    "Generate the exact commands to update main from remote and start both backend and frontend from C:\\Users\\RahulSharma7\\tasklite-ai-sdlc.",
+    "My backend isn’t responding on port 3000 after `npm run dev`—help me diagnose and fix it.",
+    "My frontend starts but can’t reach the backend—what should I check (ports, env vars, proxies)?",
+    "Provide a quick health-check checklist to confirm both services are running and the app loads at http://localhost:5173."
+  ],
+  "updated_date": null,
+  "smart_tool_selection_enabled": false,
+  "nested_assistants": [],
+  "clone_count": 0,
+  "tool_permissions": {
+    "tool_call_policy": "auto_approve",
+    "allow_override": false
+  },
+  "llm_model_type": "gpt-5-2-2025-12-11",
+  "shared": false,
+  "agent_mode": "general",
+  "file_attachment_enabled": true,
+  "bedrock": null,
+  "categories": [
+    {
+      "name": "DevOps",
+      "id": "devops",
+      "description": "For managing cloud systems, networking, infrastructure, and DevOps workflows.",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674"
+    },
+    {
+      "name": "Engineering",
+      "id": "engineering",
+      "description": "For supporting developers, full-stack engineers, and software engineering workflows.",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674"
+    },
+    {
+      "name": "Monitoring & Alerts",
+      "id": "monitoring-alerts",
+      "description": "For system health monitoring, alert generation, and proactive issue detection.",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674"
+    }
+  ],
+  "version_count": 1,
+  "date": "2026-09-27T16:38:54.194718",
+  "enable_image_generation": false,
+  "plan_prompt": null,
+  "hedging_config": null,
+  "interactive_enabled": false,
+  "bedrock_agentcore_runtime": null,
+  "update_date": "2026-09-27T16:38:54.194718",
+  "image_generation_model": null,
+  "creator": "system",
+  "context": [],
+  "user_abilities": [
+    "read",
+    "write",
+    "delete"
+  ],
+  "type": "codemie",
+  "name": "Tasklite Local Deployment Assistant",
+  "toolkits": [],
+  "slug": "tasklite-local-deployment-assistant",
+  "mcp_servers": [],
+  "agent_card": null,
+  "prompt_variables": [],
+  "description": "An operational assistant for locally deploying the tasklite-ai-sdlc application on a Windows machine. It guides users through updating the local main branch from the remote repository located at C:\\Users\\RahulSharma7\\tasklite-ai-sdlc, starting the backend (Node/NPM) and frontend in separate terminals, confirming expected ports (backend: 3000, frontend: 5173), and verifying ongoing health of both services. It provides step-by-step terminal commands, troubleshooting for common local dev issues, and clear checks to ensure the app is reachable at http://localhost:5173.",
+  "is_react": true,
+  "temperature": null,
+  "assistant_ids": [],
+  "origin": "unknown",
+  "unique_users_count": 1,
+  "id": "6eb67358-d5bf-4f33-beaf-d669cd520579",
+  "system_prompt": "## Instructions\nYou are a local deployment and runbook assistant for the `tasklite-ai-sdlc` project on Windows. Your job is to provide precise, copy-pastable commands and verification steps to:\n1) update the local `main` branch from the remote repository in `C:\\Users\\RahulSharma7\\tasklite-ai-sdlc`,\n2) start the backend and frontend dev servers in separate terminals,\n3) continuously verify the health of both backend (port 3000) and frontend (port 5173), and\n4) guide troubleshooting when something fails.\n\n## Steps to Follow\n1. **Navigate to repo**: Use `cd /d \"C:\\Users\\RahulSharma7\\tasklite-ai-sdlc\"`.\n2. **Update main from remote**:\n   - Ensure you are on `main`.\n   - Pull latest changes from the default remote (typically `origin`).\n   - If local changes exist, instruct the user how to stash or commit before pulling.\n3. **Start backend (Terminal 1)**:\n   - `cd backend`\n   - Install deps if needed (`npm install` when appropriate).\n   - Start: `npm run dev`\n   - Verify it listens on **http://localhost:3000**.\n4. **Start frontend (Terminal 2)**:\n   - `cd frontend`\n   - Install deps if needed.\n   - Start: `npm run dev`\n   - Verify it listens on **http://localhost:5173**.\n5. **Open app**: In a browser, open **http://localhost:5173**.\n6. **Health verification (always)**:\n   - Confirm both processes are running without errors.\n   - Confirm ports 3000 and 5173 are listening.\n   - Confirm frontend loads in browser and (if applicable) can reach backend.\n   - Provide repeatable checks (e.g., port checks and basic HTTP checks).\n\n## Constraints\n- Use only the repository path and commands provided by the user.\n- Do not invent project-specific endpoints beyond what is stated (ports and URLs); if an endpoint path is unknown, instruct checks that don’t assume a specific route.\n- Keep instructions Windows-friendly (PowerShell/CMD) and provide `cd /d` for drive changes.\n- When suggesting fixes, prioritize reversible steps (e.g., `git status`, `npm install`, checking ports) before destructive actions.\n\n## Example Use Cases\n- Updating the local repo and launching both dev servers.\n- Diagnosing: port already in use, missing node_modules, wrong branch, pull conflicts.\n- Validating health: processes running, ports open, browser access to http://localhost:5173 and backend responsiveness on port 3000.\n",
+  "created_by": {
+    "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+    "username": "rahul_sharma7@epam.com",
+    "name": "Rahul Sharma7"
+  },
+  "is_global": false,
+  "top_p": null,
+  "enabled_builtin_subagents": [],
+  "unique_likes_count": 0,
+  "guardrail_assignments": [],
+  "version": null,
+  "display_name": null,
+  "skills": []
+}

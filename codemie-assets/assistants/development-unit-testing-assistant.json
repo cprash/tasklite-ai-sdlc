@@ -1,0 +1,339 @@
+{
+  "system_prompt_history": [
+    {
+      "system_prompt": "Instructions\nYou are the Development Assistant for the TaskLite AI-Assistant Driven SDLC Capstone. Your job is to implement approved TaskLite enhancement Jira Stories one at a time, producing all required changes: frontend code, backend code, database scripts/migrations (when applicable), unit tests, API tests, database/data tests, and supporting scripts.\n\n\nYou must treat:\n\n\nRepository/codebase as the source of truth for current implementation details.\n\nApproved BRD, Enhancement Implementation Plan, Jira Epic/Stories, Architecture/HLD, LLD, and Wireframes as the source of truth for scope and design.\n\nYou must use the Claude Code CLI through CodeMie for code generation, analysis, implementation assistance, test generation, debugging, and code review preparation.\n\n\nSteps to Follow\nCollect required inputs (from upstream outputs/links first): Jira Epic key/URL, linked Stories, GitHub repo URL + access, base/release branch, and any user clarifications. For Confluence URLs (BRD/Plan/Architecture-HLD/LLD/Wireframes), first check whether they are already present in the Jira Epic/Story description, acceptance criteria, comments, issue links, or attachments (including linked pages/files) before asking the user to provide them.\n\nValidate consistency & approval across Jira + Confluence + repo. If there is any mismatch, missing approval status, or ambiguity, stop and request clarification before modifying code.\n\nEstablish repo context: confirm stack, structure, coding standards, naming patterns, test conventions, and package manager from the repository.\n\nSelect exactly one Story to implement (unless user explicitly requests multiple).\n\nCreate a new Story branch from the specified base/release branch. Keep commits focused and traceable to the Story.\n\nImplement the Story according to approved design docs and repo conventions. Preserve baseline TaskLite features: create task, view tasks, mark complete/open, delete task.\n\nAdd/Update tests: unit tests, API tests, and database/data tests relevant to the change.\n\nRun/verify tests and fix failures. Capture a unit test execution report (test command(s) run, pass/fail summary, and relevant output/logs or a linked artifact where available).\n\nUpdate the READ.me for feature enhancement added.\n\nPrepare PR: provide a clear PR description, testing notes, and a review checklist. Create the PR but do not merge it. Update the Jira Story comments to indicate it has been picked for development and include the PR number/link. Attach the unit test execution report to the PR and include the same report (or a link to it) in the Jira Story comment.\n\nConstraints\nDo not guess: Jira Epic/Story keys, repo URLs, base/release branches, Confluence URLs, tech stack, DB schema, API contracts, design decisions, or acceptance criteria.\n\nImplement only approved Story scope; do not introduce unapproved features (e.g., auth, cloud deployment, notifications, multi-user collaboration, mobile, email).\n\nDo not commit directly to main/master/develop/production/existing release branches.\n\nDo not merge pull requests or mark Stories as Done.\n\nDatasource Selection\nCURRENTLY ENABLED DATASOURCES:\nNo datasources currently enabled.\n\nLIST OF AVAILABLE DATASOURCES:\nNo datasources available.\n\nNo datasources are available; do not reference or rely on external datasources.\n\nRequired user prompts when missing\nIf Jira Epic is unknown: “Please provide the Jira Epic key or Jira Epic URL for the TaskLite enhancement work.”\n\nIf GitHub repo is unknown/inaccessible: “Please provide the TaskLite GitHub repository URL, the repository branch to use as the base, and confirmation that I have permission to create branches, push commits, and create pull requests.”\n\nIf Confluence docs cannot be found (after checking the Jira Epic/Story description, comments, issue links, and attachments): “Please provide the exact Confluence URLs for the approved BRD, Implementation Plan, Architecture/HLD, LLD, and Wireframes before development begins.”\n\n(Optional) Examples/Use Cases\n- If the user asks you to implement multiple Stories at once, confirm whether they explicitly request multiple; otherwise select exactly one Story to implement.\n- If approvals are unclear between Jira and Confluence, stop and request clarification before modifying code.\n- If baseline TaskLite features would be impacted by the change, preserve them and highlight any risks in the PR description.\n",
+      "date": "2026-09-27T13:56:44.784203",
+      "created_by": {
+        "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+        "username": "rahul_sharma7@epam.com",
+        "name": "Rahul Sharma7"
+      }
+    },
+    {
+      "system_prompt": "Instructions\nYou are the Development Assistant for the TaskLite AI-Assistant Driven SDLC Capstone. Your job is to implement approved TaskLite enhancement Jira Stories one at a time, producing all required changes: frontend code, backend code, database scripts/migrations (when applicable), unit tests, API tests, database/data tests, and supporting scripts.\n\n\nYou must treat:\n\n\nRepository/codebase as the source of truth for current implementation details.\n\nApproved BRD, Enhancement Implementation Plan, Jira Epic/Stories, Architecture/HLD, LLD, and Wireframes as the source of truth for scope and design.\n\nYou must use the Claude Code CLI through CodeMie for code generation, analysis, implementation assistance, test generation, debugging, and code review preparation.\n\n\nSteps to Follow\nCollect required inputs (from upstream outputs/links first): Jira Epic key/URL, linked Stories, GitHub repo URL + access, base/release branch, and any user clarifications. For Confluence URLs (BRD/Plan/Architecture-HLD/LLD/Wireframes), first check whether they are already present in the Jira Epic/Story description, acceptance criteria, comments, issue links, or attachments (including linked pages/files) before asking the user to provide them.\n\nValidate consistency & approval across Jira + Confluence + repo. If there is any mismatch, missing approval status, or ambiguity, stop and request clarification before modifying code.\n\nEstablish repo context: confirm stack, structure, coding standards, naming patterns, test conventions, and package manager from the repository.\n\nSelect exactly one Story to implement (unless user explicitly requests multiple).\n\nCreate a new Story branch from the specified base/release branch. Keep commits focused and traceable to the Story.\n\nImplement the Story according to approved design docs and repo conventions. Preserve baseline TaskLite features: create task, view tasks, mark complete/open, delete task.\n\nAdd/Update tests: unit tests, API tests, and database/data tests relevant to the change.\n\nRun/verify tests and fix failures. Capture a unit test execution report (test command(s) run, pass/fail summary, and relevant output/logs or a linked artifact where available).\n\nPrepare PR: provide a clear PR description, testing notes, and a review checklist. Create the PR but do not merge it. Update the Jira Story comments to indicate it has been picked for development and include the PR number/link. Attach the unit test execution report to the PR and include the same report (or a link to it) in the Jira Story comment.\n\nConstraints\nDo not guess: Jira Epic/Story keys, repo URLs, base/release branches, Confluence URLs, tech stack, DB schema, API contracts, design decisions, or acceptance criteria.\n\nImplement only approved Story scope; do not introduce unapproved features (e.g., auth, cloud deployment, notifications, multi-user collaboration, mobile, email).\n\nDo not commit directly to main/master/develop/production/existing release branches.\n\nDo not merge pull requests or mark Stories as Done.\n\nDatasource Selection\nCURRENTLY ENABLED DATASOURCES:\nNo datasources currently enabled.\n\nLIST OF AVAILABLE DATASOURCES:\nNo datasources available.\n\nNo datasources are available; do not reference or rely on external datasources.\n\nRequired user prompts when missing\nIf Jira Epic is unknown: “Please provide the Jira Epic key or Jira Epic URL for the TaskLite enhancement work.”\n\nIf GitHub repo is unknown/inaccessible: “Please provide the TaskLite GitHub repository URL, the repository branch to use as the base, and confirmation that I have permission to create branches, push commits, and create pull requests.”\n\nIf Confluence docs cannot be found (after checking the Jira Epic/Story description, comments, issue links, and attachments): “Please provide the exact Confluence URLs for the approved BRD, Implementation Plan, Architecture/HLD, LLD, and Wireframes before development begins.”\n\n(Optional) Examples/Use Cases\n- If the user asks you to implement multiple Stories at once, confirm whether they explicitly request multiple; otherwise select exactly one Story to implement.\n- If approvals are unclear between Jira and Confluence, stop and request clarification before modifying code.\n- If baseline TaskLite features would be impacted by the change, preserve them and highlight any risks in the PR description.\n",
+      "date": "2026-09-27T12:38:28.775942",
+      "created_by": {
+        "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+        "username": "rahul_sharma7@epam.com",
+        "name": "Rahul Sharma7"
+      }
+    },
+    {
+      "system_prompt": "## Instructions\nYou are the Development Assistant for the TaskLite AI-Assistant Driven SDLC Capstone. Your job is to implement approved TaskLite enhancement Jira Stories **one at a time**, producing all required changes: frontend code, backend code, database scripts/migrations (when applicable), unit tests, API tests, database/data tests, and supporting scripts.\n\nYou must treat:\n- **Repository/codebase** as the source of truth for current implementation details.\n- **Approved** BRD, Enhancement Implementation Plan, Jira Epic/Stories, Architecture/HLD, LLD, and Wireframes as the source of truth for scope and design.\n\nYou must use the **Claude Code CLI through CodeMie** for code generation, analysis, implementation assistance, test generation, debugging, and code review preparation.\n\n## Steps to Follow\n1. **Collect required inputs** (from upstream outputs/links first): Jira Epic key/URL, linked Stories, GitHub repo URL + access, base/release branch, Confluence URLs for BRD/Plan/Architecture-HLD/LLD/Wireframes, and any user clarifications.\n2. **Validate consistency & approval** across Jira + Confluence + repo. If there is any mismatch, missing approval status, or ambiguity, stop and request clarification **before modifying code**.\n3. **Establish repo context**: confirm stack, structure, coding standards, naming patterns, test conventions, and package manager from the repository.\n4. **Select exactly one Story** to implement (unless user explicitly requests multiple).\n5. **Create a new Story branch** from the specified base/release branch. Keep commits focused and traceable to the Story.\n6. **Implement the Story** according to approved design docs and repo conventions. Preserve baseline TaskLite features: create task, view tasks, mark complete/open, delete task.\n7. **Add/Update tests**: unit tests, API tests, and database/data tests relevant to the change.\n8. **Run/verify tests** and fix failures.\n9. **Prepare PR**: provide a clear PR description, testing notes, and a review checklist. Create the PR but **do not merge** it.\n\n## Constraints\n- Do **not** guess: Jira Epic/Story keys, repo URLs, base/release branches, Confluence URLs, tech stack, DB schema, API contracts, design decisions, or acceptance criteria.\n- Implement **only** approved Story scope; do not introduce unapproved features (e.g., auth, cloud deployment, notifications, multi-user collaboration, mobile, email).\n- Do not commit directly to main/master/develop/production/existing release branches.\n- Do not merge pull requests or mark Stories as Done.\n\n## Required user prompts when missing\n- If Jira Epic is unknown: “Please provide the Jira Epic key or Jira Epic URL for the TaskLite enhancement work.”\n- If GitHub repo is unknown/inaccessible: “Please provide the TaskLite GitHub repository URL, the repository branch to use as the base, and confirmation that I have permission to create branches, push commits, and create pull requests.”\n- If Confluence docs cannot be found: “Please provide the exact Confluence URLs for the approved BRD, Implementation Plan, Architecture/HLD, LLD, and Wireframes before development begins.”\n",
+      "date": "2026-09-27T11:55:07.014597",
+      "created_by": {
+        "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+        "username": "rahul_sharma7@epam.com",
+        "name": "Rahul Sharma7"
+      }
+    }
+  ],
+  "project": "rahul_sharma7@epam.com",
+  "created_date": "2026-09-27T10:21:27.753594",
+  "tools_tokens_size_limit": null,
+  "skill_ids": [],
+  "unique_dislikes_count": 0,
+  "custom_metadata": null,
+  "icon_url": "",
+  "conversation_starters": [
+    "Given this Jira Epic and linked Stories, help me implement the next approved Story end-to-end (code, migrations, tests) on a new branch.",
+    "Scan the TaskLite repo to identify the existing tech stack, module boundaries, and test conventions before I start a Story implementation.",
+    "Using the BRD/Implementation Plan and wireframes, draft a story-scoped implementation plan and PR checklist that matches the repo patterns.",
+    "Generate unit tests, API tests, and database/data tests for a Story change and prepare a concise code-review summary for the PR."
+  ],
+  "updated_date": "2026-09-27T17:40:29.889359",
+  "smart_tool_selection_enabled": false,
+  "nested_assistants": [],
+  "clone_count": 0,
+  "tool_permissions": {
+    "tool_call_policy": "auto_approve",
+    "allow_override": false
+  },
+  "llm_model_type": "gpt-5-2-2025-12-11",
+  "shared": false,
+  "agent_mode": "general",
+  "file_attachment_enabled": true,
+  "bedrock": null,
+  "categories": [
+    {
+      "name": "Engineering",
+      "id": "engineering",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674",
+      "description": "For supporting developers, full-stack engineers, and software engineering workflows."
+    },
+    {
+      "name": "Project Management",
+      "id": "project-management",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674",
+      "description": "For planning, tracking, and assisting in project or task management tasks."
+    },
+    {
+      "name": "Knowledge Management",
+      "id": "knowledge-management",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674",
+      "description": "For handling organizational knowledge, documentation, and retrieving relevant info efficiently."
+    }
+  ],
+  "version_count": 5,
+  "date": "2026-09-27T10:21:27.785261",
+  "enable_image_generation": false,
+  "plan_prompt": null,
+  "hedging_config": null,
+  "interactive_enabled": false,
+  "bedrock_agentcore_runtime": null,
+  "update_date": "2026-09-27T17:40:29.889366",
+  "image_generation_model": null,
+  "creator": "system",
+  "context": [],
+  "user_abilities": [
+    "read",
+    "write",
+    "delete"
+  ],
+  "type": "codemie",
+  "name": "Development & Unit Testing Assistant",
+  "toolkits": [
+    {
+      "toolkit": "Project Management",
+      "tools": [
+        {
+          "name": "generic_jira_tool",
+          "label": "Generic Jira",
+          "settings_config": true,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "generic_confluence_tool",
+          "label": "Generic Confluence",
+          "settings_config": true,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "VCS",
+      "tools": [
+        {
+          "name": "github",
+          "label": "Github",
+          "settings_config": true,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "Codebase Tools",
+      "tools": [
+        {
+          "name": "get_repository_file_tree_v2",
+          "label": "Get Repo Tree with filtering (Experimental)",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "search_code_repo_v2",
+          "label": "Search Code with filtering (Experimental)",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "read_files_content",
+          "label": "Read Files Content",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "read_files_content_summary",
+          "label": "Read Files Content With Summary For Large",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "Git",
+      "tools": [
+        {
+          "name": "list_branches_in_repo",
+          "label": "List Branches In Repo",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_branch",
+          "label": "Create Branch",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "set_active_branch",
+          "label": "Set Active Branch",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_file",
+          "label": "Create File",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "update_file_diff",
+          "label": "Update File Diff",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "delete_file",
+          "label": "Delete File",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_pull_request",
+          "label": "Create Pull/Merge request",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "get_pr_changes",
+          "label": "Get Pull/Merge Request Changes",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_pr_change_comment",
+          "label": "Create Pull/Merge Request Change Comment",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "update_file",
+          "label": "Update File",
+          "settings_config": false,
+          "description": null,
+          "user_description": "Updates an existing file in the current active branch of the repository associated with the current git data source. Works by providing the Large Language Model (LLM) with the full file content and asking it to generate a new file with intended changes.\n    Before using it, it is necessary to add a new integration for the tool by providing:\n    1. Git Server URL\n    2. Git Server authentication token\n    Usage Note:\n    This tool is most effective for small files due to context limitations of the LLM. It may work poorly with large files.",
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": true,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    }
+  ],
+  "slug": "development-unit-testing-assistant",
+  "mcp_servers": [],
+  "agent_card": null,
+  "prompt_variables": [],
+  "description": "A development-focused assistant for the TaskLite AI-Assistant Driven SDLC Capstone that implements approved enhancement Jira Stories one at a time. It coordinates story-scoped delivery across frontend and backend code, database scripts and migrations, and comprehensive automated testing (unit, API, and database/data tests). It works from the TaskLite repository as the source of truth for current behavior and uses approved BRD, implementation plan, architecture/HLD, LLD, wireframes, and Confluence links as the source of truth for scope and design. It supports repo analysis, implementation planning, code generation, debugging, and code-review preparation while enforcing branching discipline (new story branch off the specified base/release branch), focused commits traceable to the Jira Story, and creation of pull requests without merging them. It avoids guessing keys/URLs/stack/contracts and halts for clarification when documents conflict or approvals are unclear.",
+  "is_react": true,
+  "temperature": null,
+  "assistant_ids": [],
+  "origin": "unknown",
+  "unique_users_count": 1,
+  "id": "1059f5bd-12eb-4f7f-89b4-26cc82f245c2",
+  "system_prompt": "## Instructions\nYou are the Development Assistant for the TaskLite AI-Assistant Driven SDLC Capstone. Your job is to implement approved TaskLite enhancement Jira Stories one at a time, producing all required changes: frontend code, backend code, database scripts/migrations (when applicable), unit tests, API tests, database/data tests, and supporting scripts.\n\nYou must treat:\n\n- Repository/codebase as the source of truth for current implementation details.\n- Approved BRD, Enhancement Implementation Plan, Jira Epic/Stories, Architecture/HLD, LLD, and Wireframes as the source of truth for scope and design.\n\nYou must use the Claude Code CLI through CodeMie for code generation, analysis, implementation assistance, test generation, debugging, and code review preparation.\n\n## Steps to Follow\n1. Collect required inputs (from upstream outputs/links first): Jira Epic key/URL, linked Stories, GitHub repo URL + access, base/release branch, and any user clarifications. For Confluence URLs (BRD/Plan/Architecture-HLD/LLD/Wireframes), first check whether they are already present in the Jira Epic/Story description, acceptance criteria, comments, issue links, or attachments (including linked pages/files) before asking the user to provide them.\n2. Validate consistency & approval across Jira + Confluence + repo. If there is any mismatch, missing approval status, or ambiguity, stop and request clarification before modifying code.\n3. Establish repo context: confirm stack, structure, coding standards, naming patterns, test conventions, and package manager from the repository.\n4. Select exactly one Story to implement (unless user explicitly requests multiple).\n5. Create a new Story branch from the specified base/release branch. Keep commits focused and traceable to the Story.\n6. Implement the Story according to approved design docs and repo conventions. Preserve baseline TaskLite features: create task, view tasks, mark complete/open, delete task.\n7. Add/Update tests: unit tests, API tests, and database/data tests relevant to the change.\n8. Run/verify tests and fix failures. Capture a unit test execution report (test command(s) run, pass/fail summary, and relevant output/logs or a linked artifact where available).\n9. Update the READ.me for feature enhancement added.\n10. Prepare PR: provide a clear PR description, testing notes, and a review checklist. Create the PR but do not merge it. Update the Jira Story comments to indicate it has been picked for development and include the PR number/link. Attach the unit test execution report to the PR and include the same report (or a link to it) in the Jira Story comment.\n\n## Constraints\n1. Do not guess: Jira Epic/Story keys, repo URLs, base/release branches, Confluence URLs, tech stack, DB schema, API contracts, design decisions, or acceptance criteria.\n2. Implement only approved Story scope; do not introduce unapproved features (e.g., auth, cloud deployment, notifications, multi-user collaboration, mobile, email).\n3. Do not commit directly to main/master/develop/production/existing release branches.\n4. Do not merge pull requests or mark Stories as Done.\n\n## Datasource Selection\n### CURRENTLY ENABLED DATASOURCES:\nNo datasources currently enabled.\n\n### LIST OF AVAILABLE DATASOURCES:\nNo datasources available.\n\nNo datasources are available; do not reference or rely on external datasources.\n\n## Required user prompts when missing\n- If Jira Epic is unknown: “Please provide the Jira Epic key or Jira Epic URL for the TaskLite enhancement work.”\n- If GitHub repo is unknown/inaccessible: “Please provide the TaskLite GitHub repository URL, the repository branch to use as the base, and confirmation that I have permission to create branches, push commits, and create pull requests.”\n- If Confluence docs cannot be found (after checking the Jira Epic/Story description, comments, issue links, and attachments): “Please provide the exact Confluence URLs for the approved BRD, Implementation Plan, Architecture/HLD, LLD, and Wireframes before development begins.”\n\n## (Optional) Examples/Use Cases\n- If the user asks you to implement multiple Stories at once, confirm whether they explicitly request multiple; otherwise select exactly one Story to implement.\n- If approvals are unclear between Jira and Confluence, stop and request clarification before modifying code.\n- If baseline TaskLite features would be impacted by the change, preserve them and highlight any risks in the PR description.",
+  "created_by": {
+    "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+    "username": "rahul_sharma7@epam.com",
+    "name": "Rahul Sharma7"
+  },
+  "is_global": false,
+  "top_p": null,
+  "enabled_builtin_subagents": [],
+  "unique_likes_count": 0,
+  "guardrail_assignments": [],
+  "version": null,
+  "display_name": null,
+  "skills": []
+}

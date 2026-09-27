@@ -1,0 +1,294 @@
+{
+  "system_prompt_history": [],
+  "project": "rahul_sharma7@epam.com",
+  "created_date": "2026-09-27T13:30:24.171241",
+  "tools_tokens_size_limit": null,
+  "skill_ids": [],
+  "unique_dislikes_count": 0,
+  "custom_metadata": null,
+  "icon_url": "",
+  "conversation_starters": [
+    "Here is a GitHub PR URL—can you list the unresolved review comments and propose fixes for each one?",
+    "Analyze these unresolved PR review threads and suggest the smallest safe code changes to address them.",
+    "After making fixes on the PR branch, what tests should we run to ensure the review feedback is fully addressed?",
+    "Draft concise replies to each addressed PR comment explaining the change and how it resolves the concern."
+  ],
+  "updated_date": null,
+  "smart_tool_selection_enabled": false,
+  "nested_assistants": [],
+  "clone_count": 0,
+  "tool_permissions": {
+    "tool_call_policy": "auto_approve",
+    "allow_override": false
+  },
+  "llm_model_type": "gpt-5-2-2025-12-11",
+  "shared": false,
+  "agent_mode": "general",
+  "file_attachment_enabled": true,
+  "bedrock": null,
+  "categories": [
+    {
+      "name": "Engineering",
+      "id": "engineering",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674",
+      "description": "For supporting developers, full-stack engineers, and software engineering workflows."
+    },
+    {
+      "name": "Quality Assurance",
+      "id": "quality-assurance",
+      "date": "2026-01-07T13:11:26.399674",
+      "update_date": "2026-01-07T13:11:26.399674",
+      "description": "For testing, ensuring software reliability, and automating QA processes."
+    }
+  ],
+  "version_count": 1,
+  "date": "2026-09-27T13:30:24.220236",
+  "enable_image_generation": false,
+  "plan_prompt": null,
+  "hedging_config": null,
+  "interactive_enabled": false,
+  "bedrock_agentcore_runtime": null,
+  "update_date": "2026-09-27T13:30:24.220236",
+  "image_generation_model": null,
+  "creator": "system",
+  "context": [],
+  "user_abilities": [
+    "read",
+    "write",
+    "delete"
+  ],
+  "type": "codemie",
+  "name": "PR Review Fix Agent",
+  "toolkits": [
+    {
+      "toolkit": "VCS",
+      "tools": [
+        {
+          "name": "github",
+          "label": "Github",
+          "settings_config": true,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "Codebase Tools",
+      "tools": [
+        {
+          "name": "get_repository_file_tree_v2",
+          "label": "Get Repo Tree with filtering (Experimental)",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "search_code_repo_v2",
+          "label": "Search Code with filtering (Experimental)",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "read_files_content",
+          "label": "Read Files Content",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "read_files_content_summary",
+          "label": "Read Files Content With Summary For Large",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "Git",
+      "tools": [
+        {
+          "name": "set_active_branch",
+          "label": "Set Active Branch",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_branch",
+          "label": "Create Branch",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "list_branches_in_repo",
+          "label": "List Branches In Repo",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "update_file_diff",
+          "label": "Update File Diff",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "update_file",
+          "label": "Update File",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_file",
+          "label": "Create File",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "delete_file",
+          "label": "Delete File",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_pull_request",
+          "label": "Create Pull/Merge request",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "get_pr_changes",
+          "label": "Get Pull/Merge Request Changes",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        },
+        {
+          "name": "create_pr_change_comment",
+          "label": "Create Pull/Merge Request Change Comment",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": true,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    },
+    {
+      "toolkit": "FileSystem",
+      "tools": [
+        {
+          "name": "code_executor",
+          "label": "Code Executor",
+          "settings_config": false,
+          "description": null,
+          "user_description": null,
+          "deprecated": false,
+          "settings": null,
+          "auto_credentials_lookup": true
+        }
+      ],
+      "label": "",
+      "settings_config": false,
+      "is_external": false,
+      "config_class": null,
+      "settings": null,
+      "auto_credentials_lookup": true
+    }
+  ],
+  "slug": "pr-review-fix-agent",
+  "mcp_servers": [],
+  "agent_card": null,
+  "prompt_variables": [],
+  "description": "A specialized software engineering assistant for the TaskLite AI-Assistant Driven SDLC Capstone whose sole purpose is to resolve unresolved GitHub pull-request review comments on a single specified pull request. It analyzes all unresolved review threads, proposes and implements code changes directly on the existing PR branch, runs relevant tests, requests user approval before committing, then commits and pushes fixes to the same branch and replies to the corresponding review threads to mark them addressed and resolve the conversations. It focuses on safe, minimal, review-driven changes, clear explanations, and maintaining branch continuity.",
+  "is_react": true,
+  "temperature": null,
+  "assistant_ids": [],
+  "origin": "unknown",
+  "unique_users_count": 1,
+  "id": "dec54961-77ed-402b-a3de-7270d5adabc6",
+  "system_prompt": "## Instructions\nYou are the Code Review Fix Agent for the TaskLite AI-Assistant Driven SDLC Capstone.\n\nYour only responsibility is to fix **unresolved GitHub pull-request review comments** on **one specified pull request**.\n\n## Steps to Follow\n1. Receive a Pull Request URL or PR number from the user.\n2. Identify all **unresolved** review comments/threads on that PR.\n3. For each unresolved thread:\n   - Understand the reviewer concern and acceptance criteria.\n   - Propose a minimal, safe fix and explain the approach.\n4. Implement fixes on the **existing PR branch** (do not create a new PR).\n5. Run relevant tests/linters for the affected area(s) and summarize results.\n6. Ask the user for approval before committing.\n7. After user approval:\n   - Commit with a clear message.\n   - Push to the existing PR branch.\n   - Reply to each addressed review comment with a concise explanation.\n   - Resolve the corresponding threads/conversations.\n8. Stop once all unresolved threads are addressed.\n\n## Constraints\n- Scope strictly limited to resolving unresolved PR review comments for the specified PR.\n- Do not refactor unrelated code or expand scope beyond what reviewers requested.\n- Do not merge the PR.\n- Do not commit/push until the user explicitly approves.\n- Prefer the smallest change that satisfies the review feedback.\n- If tests fail, fix them only insofar as needed to satisfy the review items and restore green CI.\n\n## Use Cases\n- Address requested naming, style, or architectural adjustments raised in review.\n- Add/adjust tests requested by reviewers.\n- Fix edge cases, null handling, error handling, typing, and documentation requested in review.\n- Update PR with minimal diffs and clear comment replies.\n",
+  "created_by": {
+    "id": "0e36a9e3-dcb6-4cd2-9b94-a89d108e45e8",
+    "username": "rahul_sharma7@epam.com",
+    "name": "Rahul Sharma7"
+  },
+  "is_global": false,
+  "top_p": null,
+  "enabled_builtin_subagents": [],
+  "unique_likes_count": 0,
+  "guardrail_assignments": [],
+  "version": null,
+  "display_name": null,
+  "skills": []
+}

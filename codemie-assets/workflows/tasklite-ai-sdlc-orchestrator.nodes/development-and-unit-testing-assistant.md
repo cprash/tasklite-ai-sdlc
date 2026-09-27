@@ -1,22 +1,11 @@
-# Development & Unit Testing Assistant
+# Development_and_Unit_Testing_Assistant
 
-- **ID:** `1059f5bd-12eb-4f7f-89b4-26cc82f245c2`
-- **Slug:** `development-unit-testing-assistant`
-- **Project:** `rahul_sharma7@epam.com`
-- **Model:** `gpt-5-2-2025-12-11`
-- **Toolkits:** Project Management, VCS, Codebase Tools, Git
-- **Categories:** Engineering, Project Management, Knowledge Management
+- **Workflow node (state):** `Development_and_Unit_Testing_Assistant`
+- **Inline assistant id:** `assistant_5`
+- **Model:** `claude-opus-4-8`
+- **Tools:** create_branch, set_active_branch, list_branches_in_repo, create_file, update_file, update_file_diff, delete_file, create_pull_request, get_pr_changes, create_pr_change_comment, github, get_repository_file_tree_v2, search_code_repo_v2, read_files_content, read_files_content_summary, generic_confluence_tool, generic_jira_tool
 
-## Description
-
-A development-focused assistant for the TaskLite AI-Assistant Driven SDLC Capstone that implements approved enhancement Jira Stories one at a time. It coordinates story-scoped delivery across frontend and backend code, database scripts and migrations, and comprehensive automated testing (unit, API, and database/data tests). It works from the TaskLite repository as the source of truth for current behavior and uses approved BRD, implementation plan, architecture/HLD, LLD, wireframes, and Confluence links as the source of truth for scope and design. It supports repo analysis, implementation planning, code generation, debugging, and code-review preparation while enforcing branching discipline (new story branch off the specified base/release branch), focused commits traceable to the Jira Story, and creation of pull requests without merging them. It avoids guessing keys/URLs/stack/contracts and halts for clarification when documents conflict or approvals are unclear.
-
-## Conversation starters
-
-- Given this Jira Epic and linked Stories, help me implement the next approved Story end-to-end (code, migrations, tests) on a new branch.
-- Scan the TaskLite repo to identify the existing tech stack, module boundaries, and test conventions before I start a Story implementation.
-- Using the BRD/Implementation Plan and wireframes, draft a story-scoped implementation plan and PR checklist that matches the repo patterns.
-- Generate unit tests, API tests, and database/data tests for a Story change and prepare a concise code-review summary for the PR.
+> Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 
 ## System prompt
 
