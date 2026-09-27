@@ -22,7 +22,7 @@ export function TaskItem({ task, onToggleStatus, onDelete, onEnterEdit, isEditin
   }, [isEditing]);
 
   return (
-    <li className=`task-item${isCompleted ? " task-item--completed" : ""}`>
+    <li className={`task-item${isCompleted ? " task-item--completed" : ""}`}>
       {isEditing ? (
         <input
           ref={editInputRef}
@@ -39,10 +39,10 @@ export function TaskItem({ task, onToggleStatus, onDelete, onEnterEdit, isEditin
       )}
 
       <div className="task-item__actions">
-        <!-- Enter edit mode: no API call -->
+        {/* Enter edit mode: no API call */}
         <button
           type="button"
-          onClick=(() => onEnterEdit(task.id))
+          onClick={() => onEnterEdit(task.id)}
           disabled={disabled}
           aria-label="Edit task"
         >
@@ -50,14 +50,14 @@ export function TaskItem({ task, onToggleStatus, onDelete, onEnterEdit, isEditin
         </button>
         <button
           type="button"
-          onClick="() => onToggleStatus(task)"
+          onClick={() => onToggleStatus(task)}
           disabled={disabled}
         >
           {isCompleted ? "Mark Open" : "Mark Complete"}
         </button>
         <button
           type="button"
-          onClick="() => onDelete(task)"
+          onClick={() => onDelete(task)}
           disabled={disabled}
         >
           Delete
