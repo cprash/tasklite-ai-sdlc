@@ -6,6 +6,8 @@ node_modules
 
 # SQLite local dev database
 /prisma/dev.db
+# SQLite throwaway test database
+/prisma/test.db
 *.db-journal
 
 # Test coverage and TypeScript incremental build cache
