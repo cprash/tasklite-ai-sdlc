@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "activeProfile": "default",
+  "profiles": {},
+  "codemieAssistants": [
+    {
+      "id": "1059f5bd-12eb-4f7f-89b4-26cc82f245c2",
+      "name": "Development & Unit Testing Assistant",
+      "slug": "development-unit-testing-assistant",
+      "description": "A development-focused assistant for the TaskLite AI-Assistant Driven SDLC Capstone that implements approved enhancement Jira Stories one at a time. It coordinates story-scoped delivery across frontend and backend code, database scripts and migrations, and comprehensive automated testing (unit, API, and database/data tests). It works from the TaskLite repository as the source of truth for current behavior and uses approved BRD, implementation plan, architecture/HLD, LLD, wireframes, and Confluence links as the source of truth for scope and design. It supports repo analysis, implementation planning, code generation, debugging, and code-review preparation while enforcing branching discipline (new story branch off the specified base/release branch), focused commits traceable to the Jira Story, and creation of pull requests without merging them. It avoids guessing keys/URLs/stack/contracts and halts for clarification when documents conflict or approvals are unclear.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-27T12:00:03.462Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    },
+    {
+      "id": "dec54961-77ed-402b-a3de-7270d5adabc6",
+      "name": "PR Review Fix Agent",
+      "slug": "pr-review-fix-agent",
+      "description": "A specialized software engineering assistant for the TaskLite AI-Assistant Driven SDLC Capstone whose sole purpose is to resolve unresolved GitHub pull-request review comments on a single specified pull request. It analyzes all unresolved review threads, proposes and implements code changes directly on the existing PR branch, runs relevant tests, requests user approval before committing, then commits and pushes fixes to the same branch and replies to the corresponding review threads to mark them addressed and resolve the conversations. It focuses on safe, minimal, review-driven changes, clear explanations, and maintaining branch continuity.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-27T13:36:49.393Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    }
+  ]
+}
