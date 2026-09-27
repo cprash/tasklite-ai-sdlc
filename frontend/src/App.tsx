@@ -11,6 +11,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [busyTaskId, setBusyTaskId] = useState<number | null>(null);
+  const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
 
   const loadTasks = useCallback(async () => {
     try {
@@ -73,6 +74,12 @@ function App() {
     }
   }
 
+  function handleEnterEdit(taskId: number) {
+    // Pure ui state: no API call to enter edit mode.
+    // Only one task at a time can be in edit mode.
+    setEditingTaskId(taskId);
+  }
+
   return (
     <main className="app">
       <h1>TaskLite</h1>
@@ -95,6 +102,8 @@ function App() {
         loading={loading}
         onToggleStatus={handleToggleStatus}
         onDelete={handleDelete}
+        onEnterEdit={handleEnterEdit}
+        editingTaskId={editingTaskId}
         busyTaskId={busyTaskId}
       />
     </main>
