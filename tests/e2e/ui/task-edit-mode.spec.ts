@@ -2,6 +2,8 @@ import { expect, test } from "@playwright/test";
 import { TaskPage } from "../../pages/TaskPage";
 import { uniqueTitle } from "../../utils/test-data";
 
+// Jira Test coverage: EPMCDMETST-66824, EPMCDMETST-66825
+
 test.describe("Task edit mode UI", () => {
   test.beforeEach(async ({ page }) => {
     const taskPage = new TaskPage(page);
