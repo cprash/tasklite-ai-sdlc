@@ -10,6 +10,10 @@ export interface UpdateStatusPayload {
   status: TaskStatus | string;
 }
 
+export interface UpdateTitlePayload {
+  title: string;
+}
+
 /** Thin wrapper around the /api/tasks endpoints used by both API and UI test setup. */
 export class TasksApiClient {
   constructor(private readonly request: APIRequestContext) {}
@@ -24,6 +28,11 @@ export class TasksApiClient {
 
   updateStatus(id: number, payload: UpdateStatusPayload): Promise<APIResponse> {
     return this.request.patch(`tasks/${id}/status`, { data: payload });
+  }
+
+  // id is typed loosely so negative cases can exercise non-integer path segments.
+  updateTitle(id: number | string, payload: UpdateTitlePayload): Promise<APIResponse> {
+    return this.request.patch(`tasks/${id}`, { data: payload });
   }
 
   remove(id: number): Promise<APIResponse> {
