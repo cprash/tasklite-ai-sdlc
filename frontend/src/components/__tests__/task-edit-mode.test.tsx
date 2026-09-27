@@ -16,7 +16,7 @@ describe("EPMCDMETST-66637 – enter edit mode from task list", () => {
   });
 
   afterEach(() => {
-    vi.clearuAllMocks();
+    vi.clearAllMocks();
   });
 
   it("AC1: clicking Edit switches a task to edit mode with prefilled title", async () => {
