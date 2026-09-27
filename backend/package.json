@@ -9,6 +9,7 @@
     "start": "node dist/server.js",
     "test": "vitest run",
     "test:watch": "vitest",
+    "db:push:test": "prisma db push --skip-generate",
     "postinstall": "prisma generate"
   },
   "keywords": [],

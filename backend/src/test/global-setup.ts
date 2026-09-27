@@ -18,7 +18,10 @@ export default function setup(): void {
     rmSync(file, { force: true });
   }
 
-  execSync("npx prisma db push --skip-generate", {
+  // Run via the `db:push:test` npm script rather than `npx` so it always uses
+  // the repo's pinned Prisma version (npm puts node_modules/.bin on PATH),
+  // keeping provisioning deterministic and offline.
+  execSync("npm run db:push:test", {
     cwd: backendDir,
     stdio: "inherit",
     env: { ...process.env, DATABASE_URL: TEST_DATABASE_URL },
