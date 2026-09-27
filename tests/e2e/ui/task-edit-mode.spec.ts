@@ -1,5 +1,5 @@
-// Automation coverage: EPMODMETST-66824 (AC1, AC2), EPMCDMETST-66825 (AC3)
-// Parent Story: EPMODMETST-66637
+// Automation coverage: EPMCDMETST-66824 (AC1, AC2), EPMCDMETST-66825 (AC3)
+// Parent Story: EPMCDMETST-66637
 
 import { expect, test } from "@playwright/test";
 import { TaskPage } from "../../pages/TaskPage";
