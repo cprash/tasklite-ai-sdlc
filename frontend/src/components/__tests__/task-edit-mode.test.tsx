@@ -65,6 +65,21 @@ describe("EPMCDMETST-66637 – enter edit mode from task list", () => {
     expect(input).toHaveFocus();
   });
 
+  it("AC2b: entering edit mode selects the current title text", async () => {
+    mockedFetchTasks.mockResolvedValue(oneTask);
+    const user = userEvent.setup();
+    render(<App />);
+
+    const editBtn = await screen.findByRole("button", { name: /edit task/i });
+    await user.click(editBtn);
+
+    const input = screen.getByRole("textbox", { name: /edit task title/i }) as HTMLInputElement;
+    // select() sets the selection range to cover the whole value.
+    expect(input.selectionStart).toBe(0);
+    expect(input.selectionEnd).toBe(input.value.length);
+    expect(input.value.length).toBeGreaterThan(0);
+  });
+
   it("AC3: only one task can be in edit mode at a time", async () => {
     mockedFetchTasks.mockResolvedValue(twoTasks);
     const user = userEvent.setup();
