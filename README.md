@@ -53,7 +53,12 @@ tasklite-ai-sdlc/
 │       └── components/         # TaskForm, TaskList, TaskItem
 ├── docs/
 ├── scripts/
-└── tests/
+└── tests/                      # Playwright UI + API test suite (see tests/README.md)
+    ├── playwright.config.ts
+    ├── e2e/                    # api/ and ui/ spec files
+    ├── pages/                  # Page Object Model
+    ├── api-clients/            # API request wrappers
+    └── utils/                  # Test data helpers
 ```
 
 ## Prerequisites
@@ -126,6 +131,16 @@ npx prisma migrate dev
 2. In a separate terminal, start the frontend: `cd frontend && npm run dev` (listens on port 5173).
 3. Open `http://localhost:5173` in a browser to use the app.
 
+## Testing
+
+A Playwright suite covering both the UI and the API lives in [tests/](tests). See [tests/README.md](tests/README.md) for setup and run instructions:
+
+```bash
+cd tests
+npm install
+npm test
+```
+
 ## Future enhancements (not implemented in this baseline)
 
 The following are explicitly **out of scope** for this baseline version and may be added later:
@@ -136,5 +151,4 @@ The following are explicitly **out of scope** for this baseline version and may 
 - Sorting
 - Dashboard
 - Overdue indicators
-- Playwright end-to-end tests
 - Docker
