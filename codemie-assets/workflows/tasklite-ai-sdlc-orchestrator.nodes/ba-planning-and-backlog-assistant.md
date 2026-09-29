@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_2`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Tools:** web_scrapper, generic_jira_tool, generic_confluence_tool
+- **Skills:** jira-ticket-writer
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

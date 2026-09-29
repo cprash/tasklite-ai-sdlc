@@ -5,6 +5,7 @@
 - **Project:** `rahul_sharma7@epam.com`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Toolkits:** Project Management, VCS, Codebase Tools, Git
+- **Workflow skills:** karpathy-guidelines, code-quality-checker _(attached to `assistant_5` in `TaskLite_AI_SDLC_Orchestrator`)_
 - **Categories:** Engineering, Project Management, Knowledge Management
 
 ## Description

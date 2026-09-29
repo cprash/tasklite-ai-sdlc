@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_6`
 - **Model:** `claude-opus-4-8`
 - **Tools:** github, get_repository_file_tree_v2, search_code_repo_v2, read_files_content, read_files_content_summary, generic_jira_tool, generic_confluence_tool
+- **Skills:** code-quality-checker
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

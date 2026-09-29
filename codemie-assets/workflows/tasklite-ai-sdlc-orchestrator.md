@@ -183,7 +183,8 @@ assistants:
       - name: generic_confluence_tool
       - name: generic_jira_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - ab244b58-e840-4a7b-be9f-b9aeb86bb5f9
   - id: assistant_2
     model: gpt-5-2-2025-12-11
     system_prompt: |-
@@ -437,7 +438,8 @@ assistants:
       - name: generic_jira_tool
       - name: generic_confluence_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 1b1c5a0c-9ef0-4f1d-a76c-1dfb0cd3ff31
   - id: assistant_3
     model: gpt-5-2-2025-12-11
     system_prompt: |-
@@ -564,7 +566,8 @@ assistants:
       - name: generic_jira_tool
       - name: generic_confluence_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 6e42bcc2-0296-411b-94f8-8dcf431ea91b
   - id: assistant_4
     model: gpt-5-2-2025-12-11
     system_prompt: |-
@@ -686,7 +689,9 @@ assistants:
       - name: generic_confluence_tool
       - name: generic_jira_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - f455baf6-caa3-4311-991e-a59907e5ba81
+      - 23d6dd86-54ee-4128-a6ad-24d949a74a38
   - id: assistant_5
     model: claude-opus-4-8
     system_prompt: |-
@@ -756,7 +761,9 @@ assistants:
       - name: generic_confluence_tool
       - name: generic_jira_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 60bb6d0a-3491-4af4-bfdf-5a33d69df7e5
+      - 0da4ccb2-c523-4731-b03d-94ee99950326
   - id: assistant_6
     model: claude-opus-4-8
     system_prompt: |-
@@ -934,7 +941,8 @@ assistants:
       - name: generic_jira_tool
       - name: generic_confluence_tool
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 0da4ccb2-c523-4731-b03d-94ee99950326
   - id: assistant_7
     model: gpt-5-2-2025-12-11
     system_prompt: |
@@ -1045,7 +1053,8 @@ assistants:
       - name: generic_jira_tool
       - name: code_executor
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 2e11b465-d31d-409a-b877-7cb073981f16
   - id: assistant_9
     model: claude-opus-4-8
     system_prompt: |-
@@ -1102,7 +1111,8 @@ assistants:
       - name: read_files_content_summary
       - name: code_executor
     datasource_ids: []
-    skill_ids: []
+    skill_ids:
+      - 60bb6d0a-3491-4af4-bfdf-5a33d69df7e5
   - id: assistant_10
     model: gpt-5-2-2025-12-11
     system_prompt: |-

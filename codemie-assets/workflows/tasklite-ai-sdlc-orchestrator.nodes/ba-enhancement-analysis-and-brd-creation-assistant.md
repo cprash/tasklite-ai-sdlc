@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_1`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Tools:** generic_confluence_tool, generic_jira_tool
+- **Skills:** confluence-page-review-and-creation-sg
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

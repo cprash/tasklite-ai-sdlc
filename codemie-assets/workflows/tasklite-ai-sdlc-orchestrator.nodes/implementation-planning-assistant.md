@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_3`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Tools:** generic_jira_tool, generic_confluence_tool
+- **Skills:** development-work-planner
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

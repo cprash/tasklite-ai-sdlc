@@ -5,6 +5,7 @@
 - **Project:** `rahul_sharma7@epam.com`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Toolkits:** Project Management, VCS, FileSystem
+- **Workflow skills:** playwright-e2e-ts-tests _(attached to `assistant_8` in `TaskLite_AI_SDLC_Orchestrator`)_
 - **Categories:** Quality Assurance, Engineering, Project Management
 
 ## Description

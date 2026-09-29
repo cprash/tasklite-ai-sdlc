@@ -5,6 +5,7 @@
 - **Project:** `rahul_sharma7@epam.com`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Toolkits:** VCS, Project Management, Codebase Tools
+- **Workflow skills:** expert-solution-architect, architecture-kit-mermaid-flavored _(attached to `assistant_4` in `TaskLite_AI_SDLC_Orchestrator`)_
 - **Categories:** Architecture, Engineering, Project Management
 
 ## Description

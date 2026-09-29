@@ -27,5 +27,8 @@
     }
   ],
   "datasource_ids": [],
-  "skill_ids": []
+  "skill_ids": [
+    "f455baf6-caa3-4311-991e-a59907e5ba81",
+    "23d6dd86-54ee-4128-a6ad-24d949a74a38"
+  ]
 }

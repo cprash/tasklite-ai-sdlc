@@ -51,6 +51,26 @@ extracted to its own `.json` + `.md` under `tasklite-ai-sdlc-orchestrator.nodes/
 Note: `Enhancement_Router` exists **only** inside this workflow — there is no standalone registered
 assistant for it, so it does not appear in the Assistants table above.
 
+### Orchestrator node skills
+
+Each inline node has CodeMie skills attached via `skill_ids` in the workflow `yaml_config`
+(mirrored in `workflows/tasklite-ai-sdlc-orchestrator.{yaml,json,md}`, each node's `.json`/`.md`, and
+`.claude/agents/*.md`). They are public marketplace skills owned by other CodeMie projects.
+The standalone assistants in `assistants/` do **not** have these skills attached.
+
+| Node | Skills (id prefix) |
+|---|---|
+| Enhancement_Router | (none) |
+| BA_Enhancement_Analysis_and_BRD_Creation_Assistant | `confluence-page-review-and-creation-sg` (`ab244b58`) |
+| BA_Planning_and_Backlog_Assistant | `jira-ticket-writer` (`1b1c5a0c`) |
+| Implementation_Planning_Assistant | `development-work-planner` (`6e42bcc2`) |
+| Solution_Design_Assistant | `expert-solution-architect` (`f455baf6`), `architecture-kit-mermaid-flavored` (`23d6dd86`) |
+| Development_and_Unit_Testing_Assistant | `karpathy-guidelines` (`60bb6d0a`), `code-quality-checker` (`0da4ccb2`) |
+| PR_Review_Assistant_copy | `code-quality-checker` (`0da4ccb2`) |
+| Tasklite_Local_Deployment_Assistant | (none) |
+| QA_Automation_Orchestrator | `playwright-e2e-ts-tests` (`2e11b465`) |
+| PR_Review_Fix_Assistance_copy | `karpathy-guidelines` (`60bb6d0a`) |
+
 ## Re-import / restore
 
 ```sh

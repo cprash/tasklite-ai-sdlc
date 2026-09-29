@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_9`
 - **Model:** `claude-opus-4-8`
 - **Tools:** github, create_branch, set_active_branch, list_branches_in_repo, create_file, update_file, update_file_diff, delete_file, create_pull_request, get_pr_changes, create_pr_change_comment, get_repository_file_tree_v2, search_code_repo_v2, read_files_content, read_files_content_summary, code_executor
+- **Skills:** karpathy-guidelines
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

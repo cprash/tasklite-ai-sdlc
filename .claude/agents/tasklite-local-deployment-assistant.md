@@ -5,6 +5,7 @@
 - **Project:** `rahul_sharma7@epam.com`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Toolkits:** 
+- **Workflow skills:** (none)
 - **Categories:** DevOps, Engineering, Monitoring & Alerts
 
 ## Description

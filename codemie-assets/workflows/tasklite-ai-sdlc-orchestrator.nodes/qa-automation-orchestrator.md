@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_8`
 - **Model:** `claude-opus-4-8`
 - **Tools:** github, generic_jira_tool, code_executor
+- **Skills:** playwright-e2e-ts-tests
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

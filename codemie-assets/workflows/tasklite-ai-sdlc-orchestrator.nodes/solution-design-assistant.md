@@ -4,6 +4,7 @@
 - **Inline assistant id:** `assistant_4`
 - **Model:** `gpt-5-2-2025-12-11`
 - **Tools:** github, get_repository_file_tree_v2, search_code_repo_v2, read_files_content, read_files_content_summary, generic_confluence_tool, generic_jira_tool
+- **Skills:** expert-solution-architect, architecture-kit-mermaid-flavored
 
 > Part of the `TaskLite_AI_SDLC_Orchestrator` workflow. Defined inline in the workflow config (not a separately registered assistant).
 

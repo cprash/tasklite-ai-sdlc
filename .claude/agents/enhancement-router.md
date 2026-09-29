@@ -6,6 +6,7 @@
 - **Workflow:** `TaskLite_AI_SDLC_Orchestrator` (`09d750ce-ca56-48c9-8457-5f7ef6ae9b89`)
 - **Model:** `gpt-5-2-2025-12-11`
 - **Toolkits:** (none)
+- **Workflow skills:** (none)
 - **Categories:** (none)
 
 ## Description
