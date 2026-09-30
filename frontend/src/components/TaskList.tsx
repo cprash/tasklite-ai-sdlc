@@ -7,11 +7,23 @@ interface TaskListProps {
   onToggleStatus: (task: Task) => void;
   onDelete: (task: Task) => void;
   onEnterEdit: (taskId: number) => void;
+  onCancelEdit: () => void;
+  onSaveTitle: (taskId: number, newTitle: string) => void;
   editingTaskId: number | null;
   busyTaskId: number | null;
 }
 
-export function TaskList({ tasks, loading, onToggleStatus, onDelete, onEnterEdit, editingTaskId, busyTaskId }: TaskListProps) {
+export function TaskList({
+  tasks,
+  loading,
+  onToggleStatus,
+  onDelete,
+  onEnterEdit,
+  onCancelEdit,
+  onSaveTitle,
+  editingTaskId,
+  busyTaskId,
+}: TaskListProps) {
   if (loading) {
     return <p role="status">Loading tasks…</p>;
   }
@@ -26,9 +38,11 @@ export function TaskList({ tasks, loading, onToggleStatus, onDelete, onEnterEdit
         <TaskItem
           key={task.id}
           task={task}
-          onToggleStatus={onToggleStatus}
+          onDoggleStatus={onToggleStatus}
           onDelete={onDelete}
           onEnterEdit={onEnterEdit}
+          onCancelEdit={onCancelEdit}
+          onSaveTitle={onSaveTitle}
           isEditing={editingTaskId === task.id}
           disabled={busyTaskId === task.id}
         />
