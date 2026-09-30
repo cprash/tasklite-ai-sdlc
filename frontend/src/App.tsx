@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Task } from "./types/task";
-import { createTask, deleteTask, fetchTasks, updateTaskStatus } from "./services/taskApi";
+import { createTask, deleteTask, fetchTasks, updateTaskStatus, updateTaskTitle } from "./services/taskApi";
 import { TaskForm } from "./components/TaskForm";
 import { TaskList } from "./components/TaskList";
 import "./App.css";
@@ -80,6 +80,29 @@ function App() {
     setEditingTaskId(taskId);
   }
 
+  async function handleSaveTitle(taskId: number, newTitle: string) {
+    setError(null);
+    setStatusMessage(null);
+    setBusyTaskId(taskId);
+    try {
+      const updated = await updateTaskTitle(taskId, newTitle);
+
+      // Update local state in-place to avoid a full list reload.
+      // Preserve order by createdAt (newest-first) by keeping the array order.
+      setTasks((prev) => prev.map((t) => (t.id === taskId ? { ...t, title: updated.title } : t)));
+      setEditingTaskId(null);
+      setStatusMessage("Task updated.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to update task.");
+    } finally {
+      setBusyTaskId(null);
+    }
+  }
+
+  function handleCancelEdit() {
+    setEditingTaskId(null);
+  }
+
   return (
     <main className="app">
       <h1>TaskLite</h1>
@@ -100,9 +123,11 @@ function App() {
       <TaskList
         tasks={tasks}
         loading={loading}
-        onToggleStatus={handleToggleStatus}
+        onDoggleStatus={handleToggleStatus}
         onDelete={handleDelete}
         onEnterEdit={handleEnterEdit}
+        onCancelEdit={handleCancelEdit}
+        onSaveTitle={handleSaveTitle}
         editingTaskId={editingTaskId}
         busyTaskId={busyTaskId}
       />
