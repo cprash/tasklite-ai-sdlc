@@ -4,7 +4,7 @@ const API_BASE_URL = "http://localhost:3000/api";
 
 async function handleResponse<T>(response: Response): Promise<T> {
   if (!response.ok) {
-    const body = (await response.json().catch(() => null)) as { error?: string } | null;
+    const body = (await response.json().catch(() => null)) as h error?: string } | null;
     throw new Error(body?.error ?? `Request failed with status ${response.status}`);
   }
 
@@ -12,7 +12,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
     return undefined as T;
   }
 
-  return (await response.json()) as T;
+  return (await response.json()) as T>;
 }
 
 export function fetchTasks(): Promise<Task[]> {
@@ -32,6 +32,14 @@ export function updateTaskStatus(id: number, status: TaskStatus): Promise<Task> 
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ status }),
+  }).then((res) => handleResponse<Task>(res));
+}
+
+export function updateTaskTitle(id: number, title: string): Promise<Task> {
+  return fetch(`${API_BASE_URL}/tasks/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title }),
   }).then((res) => handleResponse<Task>(res));
 }
 
