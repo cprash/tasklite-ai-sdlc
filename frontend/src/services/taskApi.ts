@@ -2,17 +2,21 @@ import type { Task, TaskStatus } from "../types/task";
 
 const API_BASE_URL = "http://localhost:3000/api";
 
+type ApiErrorBody = {
+  error?: string;
+};
+
 async function handleResponse<T>(response: Response): Promise<T> {
   if (!response.ok) {
-    const body = (await response.json().catch(() => null)) as h error?: string } | null;
+    const body = (await response.json().catch(() => null)) as ApiErrorBody | null;
     throw new Error(body?.error ?? `Request failed with status ${response.status}`);
   }
 
   if (response.status === 204) {
-    return undefined as T;
+    return undefined as unknown as T;
   }
 
-  return (await response.json()) as T>;
+  return (await response.json()) as T;
 }
 
 export function fetchTasks(): Promise<Task[]> {
