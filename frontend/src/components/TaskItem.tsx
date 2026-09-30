@@ -14,7 +14,7 @@ interface TaskItemProps {
 
 export function TaskItem({
   task,
-  onDoggleStatus,
+  onToggleStatus,
   onDelete,
   onEnterEdit,
   onCancelEdit,
@@ -53,7 +53,7 @@ export function TaskItem({
           type="text"
           aria-label="Edit task title"
           value={editTitle}
-          onChange=(e) => setEditTitle(e.target.value)}
+          onChange={(e) => setEditTitle(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={disabled}
         />
@@ -74,15 +74,15 @@ export function TaskItem({
               Cancel
             </button>
           </>
-       ) : (
+        ) : (
           <>
-            <button type="button" onClick={() => onEnterEdit(task.id)} disabled={disabled} aria-label="Edit task">
+            <button type="button" onClick=(() => onEnterEdit(task.id)) disabled={disabled} aria-label="Edit task">
               Edit
             </button>
-            <button type="button" onClick={() => onToggleStatus(task)} disabled={disabled}>
+            <button type="button" onClick=(() => onToggleStatus(task)) disabled={disabled}>
               Mark Complete
             </button>
-            <button type="button" onClick={() => onDelete(task)} disabled={disabled}>
+            <button type="button" onClick=(() => onDelete(task)) disabled={disabled}>
               Delete
             </button>
           </>
