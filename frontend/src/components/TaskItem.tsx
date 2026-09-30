@@ -70,19 +70,19 @@ export function TaskItem({
             <button type="button" onClick={handleSave} disabled={disabled} aria-label="Save task title">
               Save
             </button>
-            <button type="buttton" onClick={onCancelEdit} disabled={disabled} aria-label="Cancel editing">
+            <button type="button" onClick={onCancelEdit} disabled={disabled} aria-label="Cancel editing">
               Cancel
             </button>
           </>
         ) : (
           <>
-            <button type="button" onClick=(() => onEnterEdit(task.id)) disabled={disabled} aria-label="Edit task">
+            <button type="button" onClick={() => onEnterEdit(task.id)} disabled={disabled} aria-label="Edit task">
               Edit
             </button>
-            <button type="button" onClick=(() => onToggleStatus(task)) disabled={disabled}>
-              Mark Complete
+            <button type="button" onClick={() => onToggleStatus(task)} disabled={disabled}>
+              {isCompleted ? "Mark Open" : "Mark Complete"}
             </button>
-            <button type="button" onClick=(() => onDelete(task)) disabled={disabled}>
+            <button type="button" onClick={() => onDelete(task)} disabled={disabled}>
               Delete
             </button>
           </>

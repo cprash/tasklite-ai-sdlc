@@ -38,7 +38,7 @@ export function TaskList({
         <TaskItem
           key={task.id}
           task={task}
-          onDoggleStatus={onToggleStatus}
+          onToggleStatus={onToggleStatus}
           onDelete={onDelete}
           onEnterEdit={onEnterEdit}
           onCancelEdit={onCancelEdit}

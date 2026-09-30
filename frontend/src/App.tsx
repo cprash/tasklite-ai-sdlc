@@ -123,7 +123,7 @@ function App() {
       <TaskList
         tasks={tasks}
         loading={loading}
-        onDoggleStatus={handleToggleStatus}
+        onToggleStatus={handleToggleStatus}
         onDelete={handleDelete}
         onEnterEdit={handleEnterEdit}
         onCancelEdit={handleCancelEdit}
