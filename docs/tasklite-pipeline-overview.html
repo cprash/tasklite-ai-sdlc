@@ -1,0 +1,380 @@
+<title>TaskLite AI Pipeline</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EDF1F3;
+  --surface:#FFFFFF;
+  --surface-2:#F5F8F9;
+  --ink:#10222B;
+  --muted:#5A6E78;
+  --line:#D2DCE1;
+  --teal:#0B7A75;
+  --teal-soft:#DDF0EE;
+  --teal-ink:#075A56;
+  --amber:#B86A00;
+  --amber-soft:#FBEBCF;
+  --hero-bg:#0F2A33;
+  --hero-ink:#EAF4F5;
+  --hero-muted:#9CB8BF;
+  --hero-accent:#5FD6CB;
+  --font-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --font-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0A171C;
+    --surface:#11252C;
+    --surface-2:#0E2027;
+    --ink:#E4EFF1;
+    --muted:#92A9B1;
+    --line:#22404A;
+    --teal:#4CCBC0;
+    --teal-soft:#123A3C;
+    --teal-ink:#8FE6DD;
+    --amber:#F0A93A;
+    --amber-soft:#3A2B10;
+    --hero-bg:#0F2A33;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0A171C;
+  --surface:#11252C;
+  --surface-2:#0E2027;
+  --ink:#E4EFF1;
+  --muted:#92A9B1;
+  --line:#22404A;
+  --teal:#4CCBC0;
+  --teal-soft:#123A3C;
+  --teal-ink:#8FE6DD;
+  --amber:#F0A93A;
+  --amber-soft:#3A2B10;
+  --hero-bg:#0F2A33;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.55;padding-inline:16px}
+.wrap{max-width:1080px;margin-inline:auto;padding-block:20px 56px;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.12}
+p{margin:0}
+code,.mono{font-family:var(--font-mono);font-size:.86em}
+
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-ink);border-radius:14px;padding:clamp(24px,5vw,48px);display:flex;flex-direction:column;gap:22px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--hero-accent)}
+.hero h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:700;letter-spacing:-.015em;max-width:18ch}
+.hero .lede{color:var(--hero-muted);font-size:1.06rem;max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+.fact{display:flex;align-items:baseline;gap:8px}
+.fact b{font-family:var(--font-display);font-size:1.6rem;color:var(--hero-accent);font-variant-numeric:tabular-nums}
+.fact span{color:var(--hero-muted);font-size:.9rem}
+
+/* section heads */
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.sec-head h2{font-size:clamp(1.4rem,3vw,1.85rem);font-weight:700}
+.sec-head p{color:var(--muted);max-width:66ch}
+
+/* route strip */
+.routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:12px}
+.route{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.route h3{font-size:.95rem;font-weight:600;font-family:var(--font-body)}
+.route p{color:var(--muted);font-size:.9rem}
+.cond{font-family:var(--font-mono);font-size:.78rem;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:2px 6px;color:var(--teal-ink);align-self:flex-start}
+
+/* phases */
+.flow{display:flex;flex-direction:column}
+.phase{display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr);gap:20px;align-items:start}
+.phase-label{padding-top:6px;display:flex;flex-direction:column;gap:4px}
+.phase-label h3{font-size:1.15rem;font-weight:700}
+.phase-label span{font-family:var(--font-mono);font-size:.75rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(16.5rem,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.num{font-family:var(--font-mono);font-size:.78rem;color:var(--muted)}
+.card h4{font-family:var(--font-display);font-size:1.08rem;font-weight:600;margin:0;line-height:1.2}
+.card .what{color:var(--muted);font-size:.9rem}
+.kv{display:grid;grid-template-columns:4.6rem minmax(0,1fr);gap:4px 10px;font-size:.84rem;margin-top:2px}
+.kv dt{color:var(--muted);font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.kv dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-family:var(--font-mono);font-size:.74rem;background:var(--teal-soft);color:var(--teal-ink);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.chip.none{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.gate{font-size:.72rem;font-weight:600;letter-spacing:.03em;background:var(--amber-soft);color:var(--amber);padding:2px 8px;border-radius:999px}
+.loop{font-size:.72rem;font-weight:600;letter-spacing:.03em;border:1px solid var(--line);color:var(--muted);padding:1px 8px;border-radius:999px}
+.handoff{display:grid;grid-template-columns:minmax(0,10.5rem) minmax(0,1fr);gap:20px;padding-block:14px}
+.handoff div{grid-column:2;display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.85rem}
+.handoff div::before{content:"";width:2px;height:22px;background:var(--teal);border-radius:2px;flex:none}
+.handoff b{color:var(--ink);font-weight:500}
+.tail{grid-column:2;margin-top:14px;background:var(--surface-2);border:1px dashed var(--line);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:.9rem}
+.tail b{color:var(--ink);font-weight:600}
+
+/* skills */
+.table-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th,td{text-align:left;padding:12px 16px;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:500;background:var(--surface-2)}
+td.skill{font-family:var(--font-mono);font-size:.84rem;color:var(--teal-ink);white-space:nowrap}
+td.where{font-size:.88rem}
+td.why{color:var(--muted);font-size:.9rem}
+
+/* guardrails */
+.guards{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:12px}
+.guard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.guard h3{font-family:var(--font-body);font-size:.98rem;font-weight:600}
+.guard p{color:var(--muted);font-size:.9rem}
+.guard.key{border-color:var(--amber)}
+
+/* risks */
+.risks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.risks li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:.92rem}
+.risks b{color:var(--ink);font-weight:600}
+.foot{color:var(--muted);font-size:.82rem;font-family:var(--font-mono)}
+
+@media (max-width:760px){
+  .phase,.handoff{grid-template-columns:minmax(0,1fr);gap:10px}
+  .handoff div,.tail{grid-column:1}
+  .phase-label{flex-direction:row;align-items:baseline;gap:10px}
+}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">CodeMie workflow / TaskLite_AI_SDLC_Orchestrator</div>
+  <h1>From enhancement request to tested, merged code</h1>
+  <p class="lede">Ten AI assistants hand work to each other in a fixed order: requirements, backlog, design, code, review, deployment and QA. Every step that writes to Confluence, Jira or GitHub waits for a person to say yes.</p>
+  <div class="facts">
+    <div class="fact"><b>10</b><span>chained assistants</span></div>
+    <div class="fact"><b>8</b><span>skills attached</span></div>
+    <div class="fact"><b>3</b><span>systems written to: Confluence, Jira, GitHub</span></div>
+    <div class="fact"><b>0</b><span>actions without approval</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head">
+    <h2>Routing rules</h2>
+    <p>The order is fixed. Three conditions decide where a request goes next.</p>
+  </div>
+  <div class="routes">
+    <div class="route">
+      <span class="cond">enhancement_type = existing</span>
+      <h3>Skip straight to Development</h3>
+      <p>The Router asks one clarifying question. Changes to existing work skip requirements and design.</p>
+    </div>
+    <div class="route">
+      <span class="cond">enhancement_type = new or unclear</span>
+      <h3>Run the full path</h3>
+      <p>BRD, backlog, implementation plan and solution design come before any code.</p>
+    </div>
+    <div class="route">
+      <span class="cond">pr_approved and pr_merged</span>
+      <h3>Review loop until merged</h3>
+      <p>If either is false, PR Review Fix resolves the review threads and the PR goes back to review. This runs twice: after Development and after QA.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>The pipeline, stage by stage</h2>
+    <p>Amber tags mark stages where the assistant drafts first and publishes only after explicit approval in chat. Teal chips are the skills attached to that stage.</p>
+  </div>
+
+  <div class="flow">
+
+    <div class="phase">
+      <div class="phase-label"><h3>Requirements</h3><span>What to build</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 1</span></div>
+          <h4>Enhancement Router</h4>
+          <p class="what">Classifies the request as existing or new and returns JSON only.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>enhancement_type</dd>
+            <dt>Tools</dt><dd>None</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip none">none</span></div></dd>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 2</span><span class="gate">3 approval checkpoints</span></div>
+          <h4>BA Enhancement Analysis and BRD</h4>
+          <p class="what">Reads existing BRDs, proposes enhancements and drafts the next release BRD.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Approved BRD in Confluence</dd>
+            <dt>Tools</dt><dd>Confluence, Jira</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">confluence-page-review-and-creation-sg</span></div></dd>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 3</span><span class="gate">Approval before Jira</span></div>
+          <h4>BA Planning and Backlog</h4>
+          <p class="what">Turns the approved BRD into a plan, one Epic and Stories with Given/When/Then criteria.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Epic and Stories in Jira</dd>
+            <dt>Tools</dt><dd>Jira, Confluence, web</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">jira-ticket-writer</span></div></dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+
+    <div class="handoff"><div><span><b>Handoff:</b> approved BRD, Epic and Stories</span></div></div>
+
+    <div class="phase">
+      <div class="phase-label"><h3>Design</h3><span>How to build it</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 4</span><span class="gate">Approval before publish</span></div>
+          <h4>Implementation Planning</h4>
+          <p class="what">Checks the BRD against the Epic and Stories, then writes a plan with a traceability matrix.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Implementation Plan in Confluence</dd>
+            <dt>Tools</dt><dd>Jira, Confluence</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">development-work-planner</span></div></dd>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 5</span><span class="gate">Approval before publish</span></div>
+          <h4>Solution Design</h4>
+          <p class="what">Reads the repo without changing it, then drafts architecture, low-level design and wireframes in Mermaid.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>HLD, LLD, wireframes, linked to the Epic</dd>
+            <dt>Tools</dt><dd>GitHub, Confluence, Jira</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">expert-solution-architect</span><span class="chip">architecture-kit-mermaid-flavored</span></div></dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+
+    <div class="handoff"><div><span><b>Handoff:</b> plan, design docs, story to implement</span></div></div>
+
+    <div class="phase">
+      <div class="phase-label"><h3>Build</h3><span>Write the code</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 6</span></div>
+          <h4>Development and Unit Testing</h4>
+          <p class="what">Implements one Story on its own branch with unit, API and data tests. Updates the README. Opens a PR and never merges it.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Open pull request, Jira comment</dd>
+            <dt>Tools</dt><dd>GitHub, Confluence, Jira</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">karpathy-guidelines</span><span class="chip">code-quality-checker</span></div></dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+
+    <div class="handoff"><div><span><b>Handoff:</b> open PR, not merged</span></div></div>
+
+    <div class="phase">
+      <div class="phase-label"><h3>Review</h3><span>Gate to main</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 7</span><span class="gate">Approval to comment, approve, merge</span></div>
+          <h4>PR Review</h4>
+          <p class="what">Posts only the comments you approve. Approves and merges only when told to, then moves the Jira issue to Resolved.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>pr_approved, pr_merged</dd>
+            <dt>Tools</dt><dd>GitHub, Jira, Confluence</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">code-quality-checker</span></div></dd>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="num">LOOP</span><span class="gate">Approval before commit</span></div>
+          <h4>PR Review Fix</h4>
+          <p class="what">Fixes unresolved review threads on the same branch, then hands the PR back to review. Never merges.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Fix commits on the PR</dd>
+            <dt>Tools</dt><dd>GitHub, code executor</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">karpathy-guidelines</span></div></dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+
+    <div class="handoff"><div><span><b>Handoff:</b> merged PR, Jira issue Resolved</span></div></div>
+
+    <div class="phase">
+      <div class="phase-label"><h3>Ship and verify</h3><span>Prove it works</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 8</span></div>
+          <h4>Local Deployment</h4>
+          <p class="what">Windows runbook: pull main, start the backend on 3000 and the frontend on 5173, check health and troubleshoot.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Running local app</dd>
+            <dt>Tools</dt><dd>None</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip none">none</span></div></dd>
+          </dl>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="num">STAGE 9</span></div>
+          <h4>QA Automation</h4>
+          <p class="what">Creates Jira Test issues linked to the Story and writes Playwright tests. Runs them against the UI and API, then reports back to Jira.</p>
+          <dl class="kv">
+            <dt>Makes</dt><dd>Test issues, results, automation PR</dd>
+            <dt>Tools</dt><dd>GitHub, Jira, code executor</dd>
+            <dt>Skills</dt><dd><div class="chips"><span class="chip">playwright-e2e-ts-tests</span></div></dd>
+          </dl>
+        </article>
+      </div>
+      <div class="tail"><b>Then a second review pass.</b> The automation PR goes through PR Review and PR Review Fix again, using the same rule. The workflow ends when <span class="mono">pr_approved and pr_merged</span> is true.</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Skills added to the workflow</h2>
+    <p>Each skill is attached to an assistant through <code>skill_ids</code> in the workflow config. They are public CodeMie marketplace skills owned by other projects. The Router and Local Deployment stages have none.</p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Skill</th><th>Attached to</th><th>What it adds</th></tr></thead>
+      <tbody>
+        <tr><td class="skill">confluence-page-review-and-creation-sg</td><td class="where">BA Enhancement and BRD</td><td class="why">Consistent page review and creation. It requires a confirmed space, parent and approval, which fits our approval rules.</td></tr>
+        <tr><td class="skill">jira-ticket-writer</td><td class="where">BA Planning and Backlog</td><td class="why">Well-structured stories and acceptance criteria.</td></tr>
+        <tr><td class="skill">development-work-planner</td><td class="where">Implementation Planning</td><td class="why">Plans with phases, risks and assumptions.</td></tr>
+        <tr><td class="skill">expert-solution-architect</td><td class="where">Solution Design</td><td class="why">Architecture, C4 and decision-record guidance.</td></tr>
+        <tr><td class="skill">architecture-kit-mermaid-flavored</td><td class="where">Solution Design</td><td class="why">Correct Mermaid syntax for the required diagrams.</td></tr>
+        <tr><td class="skill">karpathy-guidelines</td><td class="where">Development, PR Review Fix</td><td class="why">Think first, keep changes small and surgical, work toward a checkable goal.</td></tr>
+        <tr><td class="skill">code-quality-checker</td><td class="where">Development, PR Review</td><td class="why">A repeatable quality checklist before the PR and prioritized findings during review.</td></tr>
+        <tr><td class="skill">playwright-e2e-ts-tests</td><td class="where">QA Automation</td><td class="why">Maintainable, non-flaky Playwright tests in TypeScript.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Guardrails</h2>
+    <p>The same rules apply to every stage.</p>
+  </div>
+  <div class="guards">
+    <div class="guard key"><h3>Nothing is written without a yes</h3><p>No Confluence page, Jira issue, PR comment, approval or merge happens without explicit approval in chat.</p></div>
+    <div class="guard"><h3>Only the PR reviewer merges</h3><p>The developer and fix assistants open and update PRs. Only PR Review can merge, and only when told to.</p></div>
+    <div class="guard"><h3>Approved scope only</h3><p>Only what the BRD approves is planned or built. Create, view, complete/open and delete task keep working.</p></div>
+    <div class="guard"><h3>Traceable end to end</h3><p>BRD, Epic, Stories, plan, design, code and tests link to each other. Artifacts carry the labels <span class="mono">rahul_harma7</span> and <span class="mono">codemie_capstone</span> in Jira project EPMCDMETST.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>Things to know</h2>
+  </div>
+  <ul class="risks">
+    <li><b>Shared skills.</b> The skills belong to other projects. If an owner edits or removes one, an assistant's behavior can change.</li>
+    <li><b>Prompt wins over skill.</b> Where a skill overlaps with an assistant prompt, such as the Jira writer's criteria style, the prompt takes precedence.</li>
+    <li><b>Jira project key.</b> The backlog prompt spells it two ways, EPMCDMETST and EPM-CDME-TEST. The assistant is told to validate the real key.</li>
+    <li><b>Router is workflow-only.</b> It has no standalone assistant. The standalone assistants in the repo do not carry these skills.</li>
+  </ul>
+</section>
+
+<p class="foot">Workflow id 09d750ce-ca56-48c9-8457-5f7ef6ae9b89 / source: github.com/cprash/tasklite-ai-sdlc, codemie-assets/</p>
+
+</div>

@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "activeProfile": "CodeMie_Epam",
+  "activeProfile": "codemie-sso",
   "profiles": {
     "CodeMie_Epam": {
       "provider": "ai-run-sso",
       "apiKey": "sso-provided",
       "baseUrl": "https://codemie.lab.epam.com/code-assistant-api",
-      "model": "claude-sonnet-5",
+      "model": "claude-sonnet-5-5",
       "haikuModel": "claude-haiku-4-5-20251001",
-      "sonnetModel": "claude-sonnet-5",
+      "sonnetModel": "claude-sonnet-5-5",
       "opusModel": "claude-opus-5-5",
       "name": "CodeMie_Epam"
     }
@@ -16,5 +16,67 @@
   "workspace": {
     "codeMieUrl": "https://codemie.lab.epam.com",
     "codeMieProject": "rahul_sharma7@epam.com"
-  }
+  },
+  "codemieAssistants": [
+    {
+      "id": "1059f5bd-12eb-4f7f-89b4-26cc82f245c2",
+      "name": "Development & Unit Testing Assistant",
+      "slug": "development-unit-testing-assistant",
+      "description": "A development-focused assistant for the TaskLite AI-Assistant Driven SDLC Capstone that implements approved enhancement Jira Stories one at a time. It coordinates story-scoped delivery across frontend and backend code, database scripts and migrations, and comprehensive automated testing (unit, API, and database/data tests). It works from the TaskLite repository as the source of truth for current behavior and uses approved BRD, implementation plan, architecture/HLD, LLD, wireframes, and Confluence links as the source of truth for scope and design. It supports repo analysis, implementation planning, code generation, debugging, and code-review preparation while enforcing branching discipline (new story branch off the specified base/release branch), focused commits traceable to the Jira Story, and creation of pull requests without merging them. It avoids guessing keys/URLs/stack/contracts and halts for clarification when documents conflict or approvals are unclear.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-30T04:59:14.438Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    },
+    {
+      "id": "24284972-ec67-43ba-82e4-cccae97c2276",
+      "name": "PR Review Assistant",
+      "slug": "pr-review-assistant",
+      "description": "A specialized code review assistant for the TaskLite AI-Assistant Driven SDLC Capstone that comprehensively reviews a specified GitHub pull request and produces actionable, user-approvable review comments. It examines PR diffs, relevant repository context, tests, CI results, associated Jira story details, and approved design documents (when accessible) to identify real issues, risks, regressions, missing requirements, and test gaps. It then proposes suggested review comments, asks the user which to post, and posts only the user-approved comments to the appropriate GitHub PR file and line where possible. It does not write or modify code, manage branches, or make merge decisions; its responsibility ends after presenting the review result and optionally posting approved comments.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-30T05:27:16.508Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    },
+    {
+      "id": "dec54961-77ed-402b-a3de-7270d5adabc6",
+      "name": "PR Review Fix Agent",
+      "slug": "pr-review-fix-agent",
+      "description": "A specialized software engineering assistant for the TaskLite AI-Assistant Driven SDLC Capstone whose sole purpose is to resolve unresolved GitHub pull-request review comments on a single specified pull request. It analyzes all unresolved review threads, proposes and implements code changes directly on the existing PR branch, runs relevant tests, requests user approval before committing, then commits and pushes fixes to the same branch and replies to the corresponding review threads to mark them addressed and resolve the conversations. It focuses on safe, minimal, review-driven changes, clear explanations, and maintaining branch continuity.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-30T05:31:37.005Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    },
+    {
+      "id": "6eb67358-d5bf-4f33-beaf-d669cd520579",
+      "name": "Tasklite Local Deployment Assistant",
+      "slug": "tasklite-local-deployment-assistant",
+      "description": "An operational assistant for locally deploying the tasklite-ai-sdlc application on a Windows machine. It guides users through updating the local main branch from the remote repository located at C:\\Users\\RahulSharma7\\tasklite-ai-sdlc, starting the backend (Node/NPM) and frontend in separate terminals, confirming expected ports (backend: 3000, frontend: 5173), and verifying ongoing health of both services. It provides step-by-step terminal commands, troubleshooting for common local dev issues, and clear checks to ensure the app is reachable at http://localhost:5173.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-30T05:39:08.740Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    },
+    {
+      "id": "b97e0baf-e2da-468c-9c0b-8d4598c86c40",
+      "name": "QA Automation Orchestrator",
+      "slug": "qa-automation-orchestrator",
+      "description": "An automation agent that turns user stories into end-to-end test assets and execution outcomes. It connects to Jira to analyze a provided story, determine whether UI tests, API tests, or both are required, then creates Jira issues of type Test and links them to the story. It generates Playwright test cases in a GitHub repository under the tests/ directory, tagging each test with its corresponding Jira Test issue ID. The agent runs the Playwright suite locally against the target application (UI at http://localhost:5173 and API at http://localhost:3000/api), captures the Playwright report, and posts results back to Jira: passing tests are marked Passed/Closed, failing tests are marked To Do/Failed. It also attaches the Playwright report in Jira comments and, when all tests pass, moves the originating story to a resolved/closed state.",
+      "project": "rahul_sharma7@epam.com",
+      "registeredAt": "2026-09-30T05:43:26.397Z",
+      "registrationMode": "agent",
+      "agentTargets": [
+        "claude"
+      ]
+    }
+  ]
 }
