@@ -89,7 +89,7 @@ function App() {
 
       // Update local state in-place to avoid a full list reload.
       // Preserve order by createdAt (newest-first) by keeping the array order.
-      setTasks((prev) => prev.map((t) => (t.id === taskId ? { ...t, title: updated.title } : t)));
+      setTasks((prev) => prev.map((t) => (t.id === taskId ? updated : t)));
       setEditingTaskId(null);
       setStatusMessage("Task updated.");
     } catch (err) {
@@ -99,8 +99,8 @@ function App() {
     }
   }
 
-  function handleCancelEdit() {
-    setEditingTaskId(null);
+  function handleCancelEdit(taskId: number) {
+    setEditingTaskId((current) => (current === taskId ? null : current));
   }
 
   return (

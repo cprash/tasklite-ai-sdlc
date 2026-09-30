@@ -7,7 +7,7 @@ interface TaskListProps {
   onToggleStatus: (task: Task) => void;
   onDelete: (task: Task) => void;
   onEnterEdit: (taskId: number) => void;
-  onCancelEdit: () => void;
+  onCancelEdit: (taskId: number) => void;
   onSaveTitle: (taskId: number, newTitle: string) => void;
   editingTaskId: number | null;
   busyTaskId: number | null;

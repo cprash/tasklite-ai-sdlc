@@ -6,7 +6,7 @@ interface TaskItemProps {
   onToggleStatus: (task: Task) => void;
   onDelete: (task: Task) => void;
   onEnterEdit: (taskId: number) => void;
-  onCancelEdit: () => void;
+  onCancelEdit: (taskId: number) => void;
   onSaveTitle: (taskId: number, newTitle: string) => void;
   isEditing: boolean;
   disabled: boolean;
@@ -34,8 +34,14 @@ export function TaskItem({
     }
   }, [isEditing, task.title]);
 
+  const trimmedTitle = editTitle.trim();
+  const canSave = !disabled && trimmedTitle.length > 0;
+
   function handleSave() {
-    onSaveTitle(task.id, editTitle);
+    if (!canSave) {
+      return;
+    }
+    onSaveTitle(task.id, trimmedTitle);
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -67,10 +73,10 @@ export function TaskItem({
       <div className="task-item__actions">
         {isEditing ? (
           <>
-            <button type="button" onClick={handleSave} disabled={disabled} aria-label="Save task title">
+            <button type="button" onClick={handleSave} disabled={!canSave} aria-label="Save task title">
               Save
             </button>
-            <button type="button" onClick={onCancelEdit} disabled={disabled} aria-label="Cancel editing">
+            <button type="button" onClick={() => onCancelEdit(task.id)} disabled={disabled} aria-label="Cancel editing">
               Cancel
             </button>
           </>
