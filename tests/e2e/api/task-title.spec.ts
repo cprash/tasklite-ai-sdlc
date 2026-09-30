@@ -4,6 +4,8 @@ import { uniqueTitle } from "../../utils/test-data";
 
 // Jira Test coverage (Story EPMCDMETST-66640, PATCH /api/tasks/:id):
 // EPMCDMETST-66837, EPMCDMETST-66838, EPMCDMETST-66839, EPMCDMETST-66840, EPMCDMETST-66841
+// Also satisfies EPMCDMETST-67180 (Story EPMCDMETST-66641 API coverage for the same
+// PATCH /api/tasks/:id contract: title update and empty/whitespace-title validation).
 
 test.describe("Task title update API (PATCH /api/tasks/:id)", () => {
   let api: TasksApiClient;
