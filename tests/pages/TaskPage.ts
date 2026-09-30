@@ -48,4 +48,20 @@ export class TaskPage {
   editInput(): Locator {
     return this.page.getByRole("textbox", { name: "Edit task title" });
   }
+
+  async saveEdit(): Promise<void> {
+    await this.page.getByRole("button", { name: "Save task title" }).click();
+  }
+
+  async cancelEdit(): Promise<void> {
+    await this.page.getByRole("button", { name: "Cancel editing" }).click();
+  }
+
+  taskTitles(): Promise<string[]> {
+    return this.page.locator(".task-item__title").allTextContents();
+  }
+
+  navigationCount(): Promise<number> {
+    return this.page.evaluate(() => performance.getEntriesByType("navigation").length);
+  }
 }
