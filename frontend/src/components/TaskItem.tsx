@@ -46,32 +46,33 @@ export function TaskItem({
   }
 
   return (
-    <li
-      className=`
-        task-item${isCompleted ? " task-item--completed" : ""}      `
-}
-        ?{
-          isEditing ? (
-            <input
-              ref={editInputRef}              type="text"
-              aria-label="Edit task title"
-              value={editTitle}
-              onChange={(e) => setEditTitle(e.target.value)}
-              onKeyDown={handleKeyDown}              disabled={disabled}            />
-          ) : (            <>
-              <span className="task-item__title">{task.title}</span>
-              {isCompleted && (
-                <span className="task-item__badge">Completed</span>
-              )}
-            </>
-         )
-        }        <div className="task-item__actions">
-         {isEditing ? (
+    <li className={`task-item${isCompleted ? " task-item--completed" : ""}`}>
+      {isEditing ? (
+        <input
+          ref={editInputRef}
+          type="text"
+          aria-label="Edit task title"
+          value={editTitle}
+          onChange=(e) => setEditTitle(e.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+        />
+      ) : (
+        <>
+          <span className="task-item__title">{task.title}</span>
+          {isCompleted && <span className="task-item__badge">Completed</span>}
+        </>
+      )}
+
+      <div className="task-item__actions">
+        {isEditing ? (
           <>
             <button
               type="button"
               onClick={handleSave}
-              disabled={disabled}              aria-label="Save task title"            >
+              disabled={disabled}
+              aria-label="Save task title"
+            >
               Save
             </button>
             <button
@@ -83,26 +84,33 @@ export function TaskItem({
               Cancel
             </button>
           </>
-        ) : (          <>
+        ) : (
+          <>
             <button
               type="button"
-              onClick={() => onEnterEdit(task.id)}              disabled={disabled}              aria-label="Edit task"            >
+              onClick={() => onEnterEdit(task.id)}
+              disabled={disabled}
+              aria-label="Edit task"
+            >
               Edit
             </button>
             <button
               type="button"
-              onClick={() => onToggleStatus(task)}              disabled={disabled}            >
+              onClick={() => onToggleStatus(task)}
+              disabled={disabled}
+            >
               {isCompleted ? "Mark Open" : "Mark Complete"}
             </button>
             <button
               type="button"
               onClick={() => onDelete(task)}
-              disabled={disabled}            >
+              disabled={disabled}
+            >
               Delete
             </button>
           </>
-        )
-        }      </div>
+        )}
+      </div>
     </li>
   );
 }
